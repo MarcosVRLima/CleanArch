@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArch.MVC.Data
+namespace CleanArch.Infra.Data.Context
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -9,5 +9,8 @@ namespace CleanArch.MVC.Data
             : base(options)
         {
         }
+
+        // Defina seus DbSets aqui
+        // public DbSet<YourEntity> YourEntities { get; set; }
     }
 }
