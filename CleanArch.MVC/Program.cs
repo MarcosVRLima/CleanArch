@@ -1,6 +1,4 @@
-using CleanArch.Infra.Data;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using CleanArch.Infra.Ioc;
 
 var builder = WebApplication.CreateBuilder(args);
 
