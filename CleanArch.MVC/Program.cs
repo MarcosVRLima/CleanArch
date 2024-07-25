@@ -1,4 +1,4 @@
-using CleanArch.Infra.Data;
+using CleanArch.Infra.Ioc;
 
 var builder = WebApplication.CreateBuilder(args);
 
