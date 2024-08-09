@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
+using CleanArch.Domain.Interfaces;
+using CleanArch.Infra.Data.Repositories;
+using CleanArch.Application.Interfaces;
+using CleanArch.Application.Services;
 
 namespace CleanArch.Infra.Ioc
 {
@@ -19,6 +23,9 @@ namespace CleanArch.Infra.Ioc
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
 
             services.AddControllersWithViews();
         }
