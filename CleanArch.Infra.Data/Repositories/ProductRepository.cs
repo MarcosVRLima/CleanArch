@@ -1,6 +1,9 @@
 ﻿using CleanArch.Domain.Entities;
 using CleanArch.Domain.Interfaces;
 using CleanArch.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CleanArch.Infra.Data.Repositories
 {
@@ -14,9 +17,31 @@ namespace CleanArch.Infra.Data.Repositories
             _context = context;
         }
 
-        public IEnumerable<Product> GetProducts()
+        public async Task<IEnumerable<Product>> GetProducts()
         {
-            return _context.Products;
+            return await _context.Products.ToListAsync();
+        }
+
+        public async Task<Product> GetById(int? id)
+        {
+            return await _context.Products.FindAsync(id);
+        }
+
+        public void Add(Product product)
+        {
+            _context.Add(product);
+            _context.SaveChanges();
+        }
+
+        public void Update(Product product)
+        {
+            _context.Update(product);
+            _context.SaveChanges();
+        }
+
+        public void Remove(Product product)
+        {
+            throw new NotImplementedException();
         }
     }
 }
