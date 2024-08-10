@@ -41,7 +41,8 @@ namespace CleanArch.Infra.Data.Repositories
 
         public void Remove(Product product)
         {
-            throw new NotImplementedException();
+            _context.Remove(product);
+            _context.SaveChanges();
         }
     }
 }
